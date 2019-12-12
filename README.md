@@ -1,2 +1,2 @@
-# finesse
+# Polymath Finesse
 Chit Funds Application
