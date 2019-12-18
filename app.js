@@ -79,7 +79,7 @@ app.on('activate', () => {
 
 function sendStatusToWindow(text) {
   log.info(text);
-  mainWindow.webContents.send('update_status', text);
+  win.webContents.send('update_status', text);
 }
 
 //---Auto Update Code
