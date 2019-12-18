@@ -1,0 +1,49 @@
+{
+  "name": "finesse",
+  "version": "0.0.1",
+  "description": "Chit Funds Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron .",
+    "publish": "electron-builder build -p always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polymathsoftware/Finesse.git"
+  },
+  "author": "Polymath Software Techologies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/polymathsoftware/Finesse/issues"
+  },
+  "homepage": "https://github.com/polymathsoftware/Finesse#readme",
+  "devDependencies": {
+    "electron": "7.1.2",
+    "electron-builder": "21.2.0"
+  },
+  "dependencies": {
+    "electron-log": "1.3.0",
+    "electron-updater": "4.2.0"
+  },
+  "build": {
+    "appId": "com.github.polymathsoftware.Finesse",
+    "mac": {
+      "category": "chit.funds.finance.accounting",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  }
+}

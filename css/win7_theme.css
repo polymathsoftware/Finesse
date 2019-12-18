@@ -1,0 +1,144 @@
+/*** Windows 7 Theme CSS ***/
+
+.window {
+    position: absolute;
+    display: none;
+    user-select: none;
+    border: 1px solid #ddd;
+    border: solid 1px #102a3e;
+    overflow: visible;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 1px #fff;
+    box-shadow: inset 0 0 1px #fff;
+    background-color: #619bb9;
+    background: -webkit-linear-gradient(top, rgba(50, 123, 165, 0.75), rgba(46, 75, 90, 0.75) 50%, rgba(92, 176, 220, 0.75));
+    animation: fadein 1s;
+    resize: both;
+    overflow: auto;
+}
+
+/*Animation Frames*/
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.window p {
+    padding-left: 19px;
+    margin: 8px;
+    margin-top: 5px;
+    color: #fff;
+    float: left;
+    font-size:14px;
+}
+
+.mcmd {
+    display: none;
+}
+
+.head {
+    width: 100%;
+    height: 27px;
+}
+
+.wcmd {
+    float: right;
+    margin-right: 7px;
+}
+
+.wcmd a {
+    float: left;
+}
+
+.wcmd .min {
+    width: 29px;
+    height: 19px;
+    background: -webkit-linear-gradient(top, #D3CED8 50%,#a69eae 50%);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 0 0 2px;
+    border: 1px solid #555;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    text-shadow: -1px 0 #444, 0 1px #444, 1px 0 #444, 0 -1px #444;
+    font-size: 30px;
+    line-height: 16px;
+}
+
+.wcmd .max {
+    width: 27px;
+    height: 19px;
+    text-align: center;
+    background: -webkit-linear-gradient(top, #D3CED8 50%,#a69eae 50%);
+    color: #fff;
+    font-weight: bolder;
+    border: 1px solid #555;
+    border-top-width: 0;
+    border-right-width: 0;
+    text-shadow: -1px 0 #444, 0 1px #444, 1px 0 #444, 0 -1px #444;
+    font-size: 19px;
+    line-height: 14px;
+}
+
+.wcmd .min:hover {
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0,198,255,0.5);
+    box-shadow: 0px 0px 5px 3px rgba(0,198,255,0.5);
+    background: -webkit-linear-gradient(top, #cedbe9 0%,#aac5de 17%,#6199c7 50%,#3a84c3 51%,#419ad6 59%,#4bb8f0 71%,#3a8bc2 84%,#26558b 100%);
+}
+
+.wcmd .close {
+    width: 48px;
+    height: 19px;
+    background: -webkit-linear-gradient(top, #f85032 50%,#e73827 50%);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 0 3px 0;
+    border: 1px solid #555;
+    text-shadow: -1px 0 #444, 0 1px #444, 1px 0 #444, 0 -1px #444;
+    border-top-width: 0;
+}
+
+.wcmd .close:hover {
+    -webkit-box-shadow: 0px 0px 11px 3px #f85032;
+    box-shadow: 0px 0px 11px 3px #f85032;
+}
+
+.window-in {
+    background: #D9E4F1;
+    margin: 7px;
+    border: solid 1px #102a3e;
+    position: absolute;
+    width: calc(100% - 17px);
+    height: calc(100% - 34px);
+    top: 16px;
+}
+
+.window-controls {
+    margin: 10px;
+}
+
+.window-error {
+    font: bold;
+    color: red;
+    position: absolute;
+    display: none;
+}
+
+.btn {
+    height: 25px;
+}
+
+.txt {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.lbl {
+    font: bold;
+    font-size: 14px;
+}
+
+.btn:focus {
+    outline: none;
+}
+

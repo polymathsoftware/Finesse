@@ -1,0 +1,32 @@
+body {
+    font-size: 12px;
+    margin: 0px;
+}
+
+/********************Start Reports Window CSS***************************/
+#winReports {
+    width: 500px;
+    height: 675px;
+    min-width: 300px;
+    min-height: 475px;
+}
+
+#winReports p {
+    background: url("img/reports.ico") no-repeat;
+}
+
+/********************End Reports Window CSS***************************/
+
+/********************Start Receipts Window CSS***************************/
+#winAbout {
+    width: 400px;
+    height: 375px;
+}
+
+#winAbout p {
+    background: url("img/receipts.ico") no-repeat;
+}
+
+/********************End Receipts Window CSS***************************/
+
+

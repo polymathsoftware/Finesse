@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    <meta charset="utf-8" />
+    <link href="css/style.css" rel="stylesheet" /> 
+<!--    <link href="css/mac_theme.css" rel="stylesheet" />   -->   
+    <link href="css/win7_theme.css" rel="stylesheet" />  
+    <script src="js/main.js"></script>
+    <title>Polymath Finesse</title>
+</head>
+<body id='body'>
+    <!-- Start About Window -->
+    <div id="winAbout" class="window" onmousedown='mydragg.startMoving(this,"body",event);' onmouseup='mydragg.stopMoving("body");'>
+        <div class="head">
+            <p>About Finesse </p>
+            <div class="wcmd"><a class="min">-</a><a class="max">□</a><a class="close">✖</a></div>
+            <div class="mcmd"> 
+                <div class="close"><a class="closebtn" href="#"><span><strong>x</strong></span></a></div>
+                <div class="min"><a class="minbtn" href="#"><span><strong>&ndash;</strong></span></a></div>
+                <div class="max"><a class="maxbtn" href="#"><span><strong>+</strong></span></a></div>
+            </div>
+        </div>
+        <div class="window-in" onmousedown="SetWindowOnTop(this, event);" onmouseup="(e=>e.stopPropagation())(event)">
+            <div class="window-controls">
+                Current version: <span id="version">vX.Y.Z</span>
+                <div id="messages"></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Receipts Window -->
+    <!-- Start Reports Window -->
+    <div id="winReports" class="window" onmousedown='mydragg.startMoving(this,"body",event);' onmouseup='mydragg.stopMoving("body");'>
+        <div class="head">
+            <p>Reports Details</p>
+            <div class="wcmd"><a class="min">-</a><a class="max">□</a><a class="close">✖</a></div>
+            <div class="mcmd">
+                <div class="close"><a class="closebtn" href="#"><span><strong>x</strong></span></a></div>
+                <div class="min"><a class="minbtn" href="#"><span><strong>&ndash;</strong></span></a></div>
+                <div class="max"><a class="maxbtn" href="#"><span><strong>+</strong></span></a></div>
+            </div>
+        </div>
+        <div class="window-in" onmousedown="SetWindowOnTop(this, event);" onmouseup="(e=>e.stopPropagation())(event)">
+            <div class="window-controls">
+
+                <span>Test Reports window!</span>
+                <input type="text">
+            </div>
+        </div>
+    </div>
+    <!-- End Reports Window -->
+<script>
+        
+    // Listen for messages
+    const {ipcRenderer} = require('electron');
+    ipcRenderer.on('version', function(event, text) {
+        document.getElementById('version').innerText = 'v' + text;
+    })
+
+    ipcRenderer.on('update_status', function(event, text) {
+        var container = document.getElementById('messages');
+        var message = document.createElement('div');
+        message.innerHTML = text;
+        container.appendChild(message);
+    })
+
+</script>
+</body>
+</html>
