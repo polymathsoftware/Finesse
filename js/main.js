@@ -44,6 +44,12 @@ function WindowClose_Clicked() {
     this.parentNode.parentNode.parentNode.style.display = "none";
 };
 
+function mnuCloseAll_Clicked() {
+    //Close All Winows
+    document.getElementById("winAbout").style.display = "none";
+    document.getElementById("winReports").style.display = "none";
+};
+
 //************************BEGIN CODE TO LOGIN SCEEN ****************************************//
 
 function txtUserName_Changed(event) {
@@ -66,9 +72,12 @@ function txtPassword_Changed(event) {
 function mnuLogOff_Clicked() {
     //Hide the menu and display the login Screen
     //Send command to Main process to hide menu
+    mnuCloseAll_Clicked();
     document.getElementById("login-error").style.display = "none";
 
     document.getElementById("winlogin").style.display = "block";
+    document.getElementById("txtUsername").value = "";
+    document.getElementById("txtPassword").value = "";
     document.getElementById("txtUsername").focus();
 
     const { ipcRenderer } = require('electron');

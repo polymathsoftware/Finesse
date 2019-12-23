@@ -46,7 +46,6 @@ body {
 #login-error {
     left: 105px;
     bottom: 5px;
-    display: block;
 }
 
 #txtUsername, #txtPassword {
