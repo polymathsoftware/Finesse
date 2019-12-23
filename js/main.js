@@ -44,6 +44,8 @@ function WindowClose_Clicked() {
     this.parentNode.parentNode.parentNode.style.display = "none";
 };
 
+//************************BEGIN CODE TO LOGIN SCEEN ****************************************//
+
 function txtUserName_Changed(event) {
     document.getElementById("login-error").style.display = "none";
 
@@ -60,6 +62,34 @@ function txtPassword_Changed(event) {
     }
 
 };
+
+function mnuLogOff_Clicked() {
+    //Hide the menu and display the login Screen
+    //Send command to Main process to hide menu
+    document.getElementById("login-error").style.display = "none";
+
+    document.getElementById("winlogin").style.display = "block";
+    document.getElementById("txtUsername").focus();
+
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.send('asynchronous-message', 'Hide_Menu');
+
+
+};
+
+//Code When Login Button is clicked.
+function btnLogin_Clicked() {
+
+    //Hide the login window
+    document.getElementById("winlogin").style.display = "none";
+    document.getElementById("login-error").style.display = "none";
+
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.send('asynchronous-message', 'Display_Menu');
+
+};
+
+//************************END CODE TO LOGIN SCEEN ****************************************//
 
 //************************START CODE TO MAKE WINDOW DRAGABLE****************************************//
 

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, systemPreferences } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, systemPreferences } = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
 
@@ -28,7 +28,6 @@ function createWindow () {
   win.maximize();
   win.loadFile('index.html');
   
-
   // Open the DevTools.
   //win.webContents.openDevTools()
 
@@ -42,7 +41,22 @@ function createWindow () {
   });
 }
 
+ipcMain.on('asynchronous-message', (event, arg) => {
+  log.info(`ipcMain Message : ${arg}`);
 
+  if(arg == 'Display_Menu'){
+    //build menu from template
+    const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+    //Insert menu
+    Menu.setApplicationMenu(mainMenu);
+  }
+
+  if(arg == 'Hide_Menu'){
+    //Hide menu
+    Menu.setApplicationMenu(null);
+  }
+
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -261,7 +275,9 @@ const mainMenuTemplate = [
         label: '&Log Off',
         accelerator: 'CmdOrCtrl+L',
         click(){
-            app.quit();
+          win.webContents.executeJavaScript(`
+          mnuLogOff_Clicked();
+        `);
         }
       },
       { role: 'quit' }
