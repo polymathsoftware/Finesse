@@ -7,6 +7,12 @@ window.onload = function() {
     const body = this.document.querySelector("body");
     body.style.backgroundColor = systemPreferences.getColor('app-workspace');
 
+    //Display Login Screen
+    document.getElementById("winlogin").style.top = parseInt(window.innerHeight/2) - 100 + "px";
+    document.getElementById("winlogin").style.left = parseInt(window.innerWidth/2) - 158 + "px";
+    document.getElementById("winlogin").style.display = "block";
+    document.getElementById("txtUsername").focus();
+
     //Code to Hide Window when Minimize Button is Clicked
     var min = document.getElementsByClassName("min");
     Array.from(min).forEach(function(element) {
@@ -36,6 +42,23 @@ function SetWindowOnTop(sender, event) {
 function WindowClose_Clicked() {
     //This is executed when window Close or Minimize is clicked on all windows.
     this.parentNode.parentNode.parentNode.style.display = "none";
+};
+
+function txtUserName_Changed(event) {
+    document.getElementById("login-error").style.display = "none";
+
+    if (event.keyCode == 13) {
+        document.getElementById("txtPassword").focus();
+    }
+};
+
+function txtPassword_Changed(event) {
+    document.getElementById("login-error").style.display = "none";
+
+    if (event.keyCode == 13) {
+        document.getElementById("btnLogin").focus();
+    }
+
 };
 
 //************************START CODE TO MAKE WINDOW DRAGABLE****************************************//

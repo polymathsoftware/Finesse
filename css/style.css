@@ -3,6 +3,89 @@ body {
     margin: 0px;
 }
 
+
+/********************Start Login Window CSS***************************/
+#winlogin {
+    width: 367px;
+    height: 227px;
+    min-width: 367px;
+    min-height: 227px;
+    max-width: 367px;
+    max-height: 227px;
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+    animation: fadein 3s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#login-in {
+    width: 350px;
+    height: 180px;
+}
+
+
+#login-error {
+    left: 105px;
+    bottom: 5px;
+    display: block;
+}
+
+#txtUsername, #txtPassword {
+    position: absolute;
+    width: 220px;
+    font-size: 17px;
+    left: 108px;
+}
+
+#txtUsername {
+    top: 16px;
+}
+
+#txtPassword {
+    top: 55px;
+}
+
+#btnLogin, #btnCancel {
+    width: 74px;
+    height: 40px;
+}   
+
+#btnLogin {
+    position: absolute;
+    left: 95px;
+    top: 100px;
+}
+
+#btnCancel {
+    position:absolute;
+    left: 195px;
+    top: 100px;
+}
+
+
+/********************End Login Window CSS***************************/
+
+
+
 /********************Start Reports Window CSS***************************/
 #winReports {
     width: 500px;

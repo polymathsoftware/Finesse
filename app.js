@@ -18,15 +18,16 @@ let win
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 1200,
-    height: 950,
+    show: false,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  win.maximize();
+  win.loadFile('index.html');
+  
 
   // Open the DevTools.
   //win.webContents.openDevTools()
@@ -34,12 +35,14 @@ function createWindow () {
   //build menu from template
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   //Insert menu
-  Menu.setApplicationMenu(mainMenu);
-
-  // Remove native menu from template
-  //Menu.setApplicationMenu(null);
+  Menu.setApplicationMenu(null);
   
+  win.once('ready-to-show', () => {
+    win.show()
+  });
 }
+
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
