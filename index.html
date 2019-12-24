@@ -10,6 +10,16 @@
     <title>Polymath Finesse</title>
 </head>
 <body id='body'>
+    <!-- Start Ready Window -->
+    <div id="winReady" class="window" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");'>
+        <div id="ready-in" class="window-in">
+            <div id="ready-controls" style="margin:20px;">
+            </br></br></br>
+                <span id="ready-message">Feature Not Ready Yet!</span>
+            </div>
+        </div>
+    </div>
+    <!-- End Ready Window -->
     <!-- Start Login Window -->
     <div id="winlogin" class="window" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");'>
         <div id="login-in" class="window-in">

@@ -8,8 +8,8 @@ window.onload = function() {
     body.style.backgroundColor = systemPreferences.getColor('app-workspace');
 
     //Display Login Screen
-    document.getElementById("winlogin").style.top = parseInt(window.innerHeight/2) - 100 + "px";
-    document.getElementById("winlogin").style.left = parseInt(window.innerWidth/2) - 158 + "px";
+    document.getElementById("winlogin").style.top = parseInt(window.innerHeight/2) - 113.5 + "px";
+    document.getElementById("winlogin").style.left = parseInt(window.innerWidth/2) - 183.5 + "px";
     document.getElementById("winlogin").style.display = "block";
     document.getElementById("txtUsername").focus();
 
@@ -31,6 +31,16 @@ function menuItem_Clicked(sender) {
     document.getElementById(sender).style.display = "block";
     document.getElementById(sender).style.zIndex = nZindex;
     nZindex++;
+
+    if(sender=='winReady') {
+        //Set Ready Window Position
+        document.getElementById("winReady").style.top = parseInt(window.innerHeight/2) - 113.5 + "px";
+        document.getElementById("winReady").style.left = parseInt(window.innerWidth/2) - 183.5 + "px";
+        setTimeout(function () {
+            document.getElementById('winReady').style.display='none';
+        }, 3000);
+    }
+
 };
 
 function SetWindowOnTop(sender, event) {

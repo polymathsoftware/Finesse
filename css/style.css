@@ -3,6 +3,39 @@ body {
     margin: 0px;
 }
 
+/********************Start Ready Window CSS***************************/
+#winReady {
+    width: 367px;
+    height: 227px;
+    min-width: 367px;
+    min-height: 227px;
+    max-width: 367px;
+    max-height: 227px;
+    /*animation: cssAnimation 2s forwards;*/
+}
+
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    70%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#ready-in {
+    width: 350px;
+    height: 180px;
+    text-align: center;
+}
+
+#ready-message {
+    left: 505px;
+    bottom: 5px;
+    font-weight: bolder;
+    font-size: x-large;
+    color: red;
+}
+
+/********************End Ready Window CSS***************************/
+
 
 /********************Start Login Window CSS***************************/
 #winlogin {
@@ -12,29 +45,14 @@ body {
     min-height: 227px;
     max-width: 367px;
     max-height: 227px;
-    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
     animation: fadein 3s;
+    /* animation: cssAnimation 2s forwards;*/
 }
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    70%  {opacity: 1;}
+    100% {opacity: 0;}
 }
 
 #login-in {

@@ -132,7 +132,7 @@ const mainMenuTemplate = [
           label: '&Receipts',
           click(){
             win.webContents.executeJavaScript(`
-            alert("Not ready yet!");
+            menuItem_Clicked('winReady');
           `);
           }
       },
@@ -140,7 +140,7 @@ const mainMenuTemplate = [
           label: '&Payments',
           click(){
             win.webContents.executeJavaScript(`
-            alert("Not ready yet!");
+            menuItem_Clicked('winReady');
           `);
           }
       },
@@ -148,7 +148,7 @@ const mainMenuTemplate = [
         label: '&Subscribers',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -156,7 +156,7 @@ const mainMenuTemplate = [
         label: '&Auctions',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -165,7 +165,7 @@ const mainMenuTemplate = [
         label: '&Daily Collection',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -173,7 +173,7 @@ const mainMenuTemplate = [
         label: 'DC &Numbers',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -181,7 +181,7 @@ const mainMenuTemplate = [
         label: 'Collection S&taff',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -189,7 +189,7 @@ const mainMenuTemplate = [
         label: 'Ar&eas',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -197,7 +197,7 @@ const mainMenuTemplate = [
         label: '&Businesses',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -206,7 +206,7 @@ const mainMenuTemplate = [
         label: '&Groups',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -214,7 +214,7 @@ const mainMenuTemplate = [
         label: '&Customers',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -224,7 +224,7 @@ const mainMenuTemplate = [
         accelerator: 'CmdOrCtrl+N',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -233,7 +233,7 @@ const mainMenuTemplate = [
         label: 'User Settings',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -241,7 +241,7 @@ const mainMenuTemplate = [
         label: 'Color Settings',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -249,7 +249,7 @@ const mainMenuTemplate = [
         label: 'Change Password',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },            
@@ -266,7 +266,7 @@ const mainMenuTemplate = [
         label: 'Pr&int Setup...',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },            
@@ -351,7 +351,7 @@ const mainMenuTemplate = [
         label: '&Voucher',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -359,7 +359,7 @@ const mainMenuTemplate = [
         label: '&Account',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -368,7 +368,7 @@ const mainMenuTemplate = [
         label: '&Ledger',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -376,7 +376,7 @@ const mainMenuTemplate = [
         label: '&Trial Balance',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -384,7 +384,7 @@ const mainMenuTemplate = [
         label: '&Final Accounts',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -393,7 +393,7 @@ const mainMenuTemplate = [
         label: '&Order Vouchers',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -401,7 +401,7 @@ const mainMenuTemplate = [
         label: '&Renumber Vouchers',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -414,7 +414,7 @@ const mainMenuTemplate = [
         label: '&Business Information',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -422,7 +422,7 @@ const mainMenuTemplate = [
         label: '&System Settings',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -430,7 +430,7 @@ const mainMenuTemplate = [
         label: '&Numbering',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -438,7 +438,7 @@ const mainMenuTemplate = [
         label: '&Users',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -446,7 +446,7 @@ const mainMenuTemplate = [
         label: '&Family',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -454,7 +454,7 @@ const mainMenuTemplate = [
         label: '&Holidays',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
@@ -462,7 +462,7 @@ const mainMenuTemplate = [
         label: 'S&taffs',
         click(){
           win.webContents.executeJavaScript(`
-          alert("Not ready yet!");
+          menuItem_Clicked('winReady');
         `);
         }
       },
