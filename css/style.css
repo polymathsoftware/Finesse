@@ -61,43 +61,23 @@ body {
 }
 
 
-#login-error {
-    left: 105px;
-    bottom: 5px;
+#lblloginerror {
+    font-size: large;
+    font: bold;
+    color: red;
+    display: none;
+    padding: 10px;
 }
 
 #txtUsername, #txtPassword {
-    position: absolute;
     width: 220px;
     font-size: 17px;
-    left: 108px;
-}
-
-#txtUsername {
-    top: 16px;
-}
-
-#txtPassword {
-    top: 55px;
 }
 
 #btnLogin, #btnCancel {
     width: 74px;
     height: 40px;
 }   
-
-#btnLogin {
-    position: absolute;
-    left: 95px;
-    top: 100px;
-}
-
-#btnCancel {
-    position:absolute;
-    left: 195px;
-    top: 100px;
-}
-
 
 /********************End Login Window CSS***************************/
 

@@ -475,7 +475,7 @@ const mainMenuTemplate = [
         label: 'Learn More',
         click: async () => {
           const { shell } = require('electron')
-          await shell.openExternal('https://geochits.com')
+          await shell.openExternal('https://finesse.polymath.in/')
         }
       },
       { type: 'separator' },

@@ -99,10 +99,20 @@ function mnuLogOff_Clicked() {
 //Code When Login Button is clicked.
 function btnLogin_Clicked() {
 
+    const loginerror = document.getElementById("lblloginerror");
+    const txtUsername = document.getElementById("txtUsername");
+    const txtPassword = document.getElementById("txtPassword");
+
+    if(txtUsername.value == ""){ 
+        //loginerror.innerText ="Please Enter The Email Address."
+        loginerror.style.display = "block";
+        return;
+    }
+
+
     //Hide the login window
     document.getElementById("winlogin").style.display = "none";
-    document.getElementById("login-error").style.display = "none";
-
+    
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Display_Menu');
 
