@@ -60,20 +60,55 @@ function mnuCloseAll_Clicked() {
     document.getElementById("winReports").style.display = "none";
 };
 
+function emailIsValid (email) {
+    return /\S+@\S+\.\S+/.test(email)
+};
+
+async function requestREST(url = '', data = {}) {
+
+    const response = await fetch(url, {
+      method: 'POST', 
+      cache: 'no-cache', 
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams(data)
+    });
+    return await response.json(); 
+  }
+  
+
 //************************BEGIN CODE TO LOGIN SCEEN ****************************************//
 
 function txtUserName_Changed(event) {
-    document.getElementById("login-error").style.display = "none";
+    const loginerror = document.getElementById("lblloginerror");
+    const txtUsername = document.getElementById("txtUsername");
+    const txtPassword = document.getElementById("txtPassword");
+
+    loginerror.style.display = "none";
 
     if (event.keyCode == 13) {
-        document.getElementById("txtPassword").focus();
+        if(!emailIsValid(txtUsername.value)){ 
+            loginerror.innerText ="Please Enter A Valid Email Address."
+            loginerror.style.display = "block";
+            return;
+        }
+        txtPassword.focus();
     }
 };
 
 function txtPassword_Changed(event) {
-    document.getElementById("login-error").style.display = "none";
+    const loginerror = document.getElementById("lblloginerror");
+    const txtPassword = document.getElementById("txtPassword");
+
+    lblloginerror.style.display = "none";
 
     if (event.keyCode == 13) {
+        if(txtPassword.value == ""){ 
+            loginerror.innerText ="Please Enter The Password."
+            loginerror.style.display = "block";
+            return;
+        }
         document.getElementById("btnLogin").focus();
     }
 
@@ -83,7 +118,7 @@ function mnuLogOff_Clicked() {
     //Hide the menu and display the login Screen
     //Send command to Main process to hide menu
     mnuCloseAll_Clicked();
-    document.getElementById("login-error").style.display = "none";
+    document.getElementById("lblloginerror").style.display = "none";
 
     document.getElementById("winlogin").style.display = "block";
     document.getElementById("txtUsername").value = "";
@@ -97,22 +132,38 @@ function mnuLogOff_Clicked() {
 };
 
 //Code When Login Button is clicked.
-function btnLogin_Clicked() {
+async function btnLogin_Clicked() {
 
     const loginerror = document.getElementById("lblloginerror");
     const txtUsername = document.getElementById("txtUsername");
     const txtPassword = document.getElementById("txtPassword");
 
-    if(txtUsername.value == ""){ 
-        //loginerror.innerText ="Please Enter The Email Address."
+    if(!emailIsValid(txtUsername.value)){ 
+        loginerror.innerText ="Please Enter A Valid Email Address."
+        loginerror.style.display = "block";
+        return;
+    }
+    if(txtPassword.value == ""){ 
+        loginerror.innerText ="Please Enter The Password."
         loginerror.style.display = "block";
         return;
     }
 
+    //Build the JSON Data Object to Send to Server
+	var aData = {};
+	aData.email = txtUsername.value;
+	
+	try {
+	  const objResult = await requestREST('https://finesse.polymath.in/api/login.php', aData);
+      loginerror.innerText =  JSON.stringify(objResult); 
+      return;
+	} catch (error) {
+	  console.error(error);
+    }
 
     //Hide the login window
     document.getElementById("winlogin").style.display = "none";
-    
+    //Display Menu
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Display_Menu');
 

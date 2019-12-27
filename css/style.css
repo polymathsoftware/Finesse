@@ -60,6 +60,11 @@ body {
     height: 180px;
 }
 
+#login-controls{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
 
 #lblloginerror {
     font-size: large;
@@ -77,6 +82,8 @@ body {
 #btnLogin, #btnCancel {
     width: 74px;
     height: 40px;
+    margin-top: 12px;
+    margin-left: 10px;
 }   
 
 /********************End Login Window CSS***************************/

@@ -163,3 +163,8 @@ span {
 }
 
 /* window END */
+
+.lbl {
+  font: bold;
+  font-size: 17px;
+}
