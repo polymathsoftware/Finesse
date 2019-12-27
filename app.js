@@ -29,7 +29,7 @@ function createWindow () {
   win.loadFile('index.html');
   
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   //build menu from template
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
