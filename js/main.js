@@ -2,6 +2,10 @@ const { remote } = require('electron');
 const { systemPreferences } = remote;
 var nZindex = 5; //Stores the Windows Zindex
 
+let sFirst_Name = "";
+let sLast_Name = "";
+let sAccess_Key = "";
+
 window.onload = function() {
     //Get color from Windows and update the body
     const body = this.document.querySelector("body");
@@ -151,14 +155,19 @@ async function btnLogin_Clicked() {
 
     //Build the JSON Data Object to Send to Server
 	var aData = {};
-	aData.email = txtUsername.value;
+    aData.email = txtUsername.value;
+    aData.pass = txtPassword.value;
 	
 	try {
 	  const objResult = await requestREST('https://finesse.polymath.in/api/login.php', aData);
-      loginerror.innerText =  JSON.stringify(objResult); 
-      return;
+      sFirst_Name = objResult[0][0].first_name;
+      sLast_Name = objResult[0][0].last_name;
+      sAccess_Key = objResult[0][0].access_key;
 	} catch (error) {
-	  console.error(error);
+      console.error(error);
+      loginerror.innerText = "Invalid Username or Password!"; 
+      loginerror.style.display = "block";
+      return;
     }
 
     //Hide the login window
