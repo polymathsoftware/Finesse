@@ -159,7 +159,7 @@ async function btnLogin_Clicked() {
     aData.pass = txtPassword.value;
 	
 	try {
-	  const objResult = await requestREST('https://finesse.polymath.in/api/login.php', aData);
+	  const objResult = await requestREST('https://finesse.polymath.in/rest/login.php', aData);
       sFirst_Name = objResult[0][0].first_name;
       sLast_Name = objResult[0][0].last_name;
       sAccess_Key = objResult[0][0].access_key;
