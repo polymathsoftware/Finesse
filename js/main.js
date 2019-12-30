@@ -141,6 +141,7 @@ async function btnLogin_Clicked() {
     const loginerror = document.getElementById("lblloginerror");
     const txtUsername = document.getElementById("txtUsername");
     const txtPassword = document.getElementById("txtPassword");
+    const btnLogin = document.getElementById("btnLogin");
 
     if(!emailIsValid(txtUsername.value)){ 
         loginerror.innerText ="Please Enter A Valid Email Address."
@@ -153,6 +154,8 @@ async function btnLogin_Clicked() {
         return;
     }
 
+    btnLogin.disabled = true;
+    
     //Build the JSON Data Object to Send to Server
 	var aData = {};
     aData.email = txtUsername.value;
@@ -162,11 +165,12 @@ async function btnLogin_Clicked() {
 	  const objResult = await requestREST('https://finesse.polymath.in/rest/login.php', aData);
       sFirst_Name = objResult[0][0].first_name;
       sLast_Name = objResult[0][0].last_name;
-      sAccess_Key = objResult[0][0].access_key;
+      sAccess_Key = objResult[0][0].session_id;
 	} catch (error) {
       console.error(error);
       loginerror.innerText = "Invalid Username or Password!"; 
       loginerror.style.display = "block";
+      btnLogin.disabled = false;
       return;
     }
 
@@ -175,6 +179,7 @@ async function btnLogin_Clicked() {
     //Display Menu
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Display_Menu');
+    btnLogin.disabled = false;
 
 };
 
