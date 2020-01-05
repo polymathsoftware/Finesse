@@ -1,6 +1,6 @@
 {
   "name": "Finesse",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Chit Funds Application",
   "main": "app.js",
   "scripts": {

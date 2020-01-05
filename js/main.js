@@ -5,6 +5,7 @@ var nZindex = 5; //Stores the Windows Zindex
 let sFirst_Name = "";
 let sLast_Name = "";
 let sAccess_Key = "";
+let objCompanyList;
 
 window.onload = function() {
     //Get color from Windows and update the body
@@ -168,6 +169,7 @@ async function btnLogin_Clicked() {
       sFirst_Name = objResult[0][0].first_name;
       sLast_Name = objResult[0][0].last_name;
       sAccess_Key = objResult[0][0].session_id;
+      objCompanyList = objResult[1];
 	} catch (error) {
       console.error(error);
       loginerror.innerText = "Invalid Username or Password!"; 
@@ -180,12 +182,16 @@ async function btnLogin_Clicked() {
     document.getElementById("winlogin").style.display = "none";
     document.getElementById("winSelCompany").style.top = parseInt(window.innerHeight/2) - 213.5 + "px";
     document.getElementById("winSelCompany").style.left = parseInt(window.innerWidth/2) - 283.5 + "px";
-    document.getElementById("lblSelCompany_Message").innerText = "Test Message";
-    document.getElementById("winSelCompany").style.display = "block";
+    document.getElementById("lstSelCompany_List").innerHTML = "";
+    for (var i = 0; i < objCompanyList.length; i++) {
+        var opt = document.createElement("option");
+        opt.text = objCompanyList[i].company_name;
+        opt.value = "SomeValue"
+        document.getElementById("lstSelCompany_List").options.add(opt); 
+     }
 
-    //Display Menu
-    const { ipcRenderer } = require('electron');
-    ipcRenderer.send('asynchronous-message', 'Display_Menu');
+    document.getElementById("lstSelCompany_List").selectedIndex = "0";
+    document.getElementById("winSelCompany").style.display = "block";
     btnLogin.disabled = false;
 
 };
@@ -199,6 +205,18 @@ function btnLoginCancel_Clicked(){
 };
 
 //************************END CODE TO LOGIN SCEEN ****************************************//
+
+//************************END CODE TO SELECT COMPANY SCEEN ****************************************//
+
+function btnSelCompany_Select_Clicked(){
+    //Display Menu
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.send('asynchronous-message', 'Display_Menu');
+
+    document.getElementById("winSelCompany").style.display = "none";
+}
+
+//************************END CODE TO SELECT COMPANY SCEEN ****************************************//
 
 //************************START CODE TO MAKE WINDOW DRAGABLE****************************************//
 

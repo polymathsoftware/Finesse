@@ -41,10 +41,17 @@
     <!-- End Login Window -->
     <!-- Start Select Company Window -->
     <div id="winSelCompany" class="window" onmousedown='mydragg.startMoving(this,"body",event);' onmouseup='mydragg.stopMoving("body");'>
+        <div class="head"><p>Select Company</p></div>
         <div id="SelCompany-in" class="window-in">
             <div style="margin:20px;">
                 <div id="SelCompany-controls">
-                    <span id="lblSelCompany_Message"></span>
+                    <div>
+                        <select id="lstSelCompany_List" size="21"></select>
+                    </div>
+                    <div class="align_center">
+                        <button id="btnSelCompany_Select" onclick="btnSelCompany_Select_Clicked()" >Select</button></br>
+                        <button id="btnSelCompany_Cancel" onclick="btnLoginCancel_Clicked()" >Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>

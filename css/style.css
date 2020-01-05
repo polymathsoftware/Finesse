@@ -3,6 +3,10 @@ body {
     margin: 0px;
 }
 
+.align_center{
+    text-align: center;
+}
+
 /********************Start Ready Window CSS***************************/
 #winReady {
     width: 367px;
@@ -101,9 +105,20 @@ body {
 
 #SelCompany-controls{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 5fr 1fr;
     grid-gap: 10px;
 }
+
+#lstSelCompany_List{
+    width: 100%;    
+}
+
+#btnSelCompany_Select, #btnSelCompany_Cancel {
+    width: 74px;
+    height: 40px;
+    margin-top: 12px;
+    margin-left: auto;
+} 
 
 /********************End Select Company Window CSS***************************/
 
