@@ -32,13 +32,24 @@
                 </div>
                 <div style="text-align: center;">
                     <input id="btnLogin" type="button" value="Login" onclick="btnLogin_Clicked()"  onmousedown="(e=>e.stopPropagation())(event)" onmouseup="(e=>e.stopPropagation())(event)"/>
-                    <input id="btnCancel" type="button" value="Cancel"  onmousedown="(e=>e.stopPropagation())(event)" onmouseup="(e=>e.stopPropagation())(event)"/><br />
+                    <input id="btnCancel" type="button" value="Cancel"  onclick="btnLoginCancel_Clicked()"   onmousedown="(e=>e.stopPropagation())(event)" onmouseup="(e=>e.stopPropagation())(event)"/><br />
                     <span id="lblloginerror">Invalid Username or Password!</span>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Login Window -->
+    <!-- Start Select Company Window -->
+    <div id="winSelCompany" class="window" onmousedown='mydragg.startMoving(this,"body",event);' onmouseup='mydragg.stopMoving("body");'>
+        <div id="SelCompany-in" class="window-in">
+            <div style="margin:20px;">
+                <div id="SelCompany-controls">
+                    <span id="lblSelCompany_Message"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Login Window -->    
     <!-- Start About Window -->
     <div id="winAbout" class="window" onmousedown='mydragg.startMoving(this,"body",event);' onmouseup='mydragg.stopMoving("body");'>
         <div class="head">

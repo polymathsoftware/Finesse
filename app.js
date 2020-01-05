@@ -31,8 +31,6 @@ function createWindow () {
   // Open the DevTools.
   //win.webContents.openDevTools()
 
-  //build menu from template
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   //Insert menu
   Menu.setApplicationMenu(null);
   
@@ -55,6 +53,12 @@ ipcMain.on('asynchronous-message', (event, arg) => {
     //Hide menu
     Menu.setApplicationMenu(null);
   }
+
+  if(arg == 'Quit_App'){
+    //Quit Application
+    app.quit();
+  }
+
 
 })
 
@@ -82,7 +86,7 @@ app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
 })
 

@@ -62,6 +62,7 @@ function mnuCloseAll_Clicked() {
     //Close All Winows
     document.getElementById("winAbout").style.display = "none";
     document.getElementById("winReports").style.display = "none";
+    document.getElementById("winSelCompany").style.display = "none";
 };
 
 function emailIsValid (email) {
@@ -148,6 +149,7 @@ async function btnLogin_Clicked() {
         loginerror.style.display = "block";
         return;
     }
+
     if(txtPassword.value == ""){ 
         loginerror.innerText ="Please Enter The Password."
         loginerror.style.display = "block";
@@ -176,10 +178,23 @@ async function btnLogin_Clicked() {
 
     //Hide the login window
     document.getElementById("winlogin").style.display = "none";
+    document.getElementById("winSelCompany").style.top = parseInt(window.innerHeight/2) - 213.5 + "px";
+    document.getElementById("winSelCompany").style.left = parseInt(window.innerWidth/2) - 283.5 + "px";
+    document.getElementById("lblSelCompany_Message").innerText = "Test Message";
+    document.getElementById("winSelCompany").style.display = "block";
+
     //Display Menu
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Display_Menu');
     btnLogin.disabled = false;
+
+};
+
+function btnLoginCancel_Clicked(){
+
+    //Quit Application
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.send('asynchronous-message', 'Quit_App');
 
 };
 

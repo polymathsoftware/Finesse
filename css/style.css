@@ -82,7 +82,30 @@ body {
 
 /********************End Login Window CSS***************************/
 
+/********************Start Select Company Window CSS***************************/
+#winSelCompany {
+    width: 567px;
+    height: 427px;
+    min-width: 567px;
+    min-height: 427px;
+    animation: fadein 3s;
+    /* animation: cssAnimation 2s forwards;*/
+}
 
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    70%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+#SelCompany-controls{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+/********************End Select Company Window CSS***************************/
 
 /********************Start Reports Window CSS***************************/
 #winReports {
