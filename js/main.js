@@ -4,7 +4,7 @@ var nZindex = 5; //Stores the Windows Zindex
 
 let sFirst_Name = "";
 let sLast_Name = "";
-let sAccess_Key = "";
+let sSessionId = "";
 let objCompanyList;
 
 window.onload = function() {
@@ -134,6 +134,8 @@ function mnuLogOff_Clicked() {
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Hide_Menu');
 
+    document.title = "Polymath Finesse";
+
 
 };
 
@@ -168,7 +170,7 @@ async function btnLogin_Clicked() {
 	  const objResult = await requestREST('https://finesse.polymath.in/rest/login.php', aData);
       sFirst_Name = objResult[0][0].first_name;
       sLast_Name = objResult[0][0].last_name;
-      sAccess_Key = objResult[0][0].session_id;
+      sSessionId = objResult[0][0].session_id;
       objCompanyList = objResult[1];
 	} catch (error) {
       console.error(error);
@@ -186,7 +188,7 @@ async function btnLogin_Clicked() {
     for (var i = 0; i < objCompanyList.length; i++) {
         var opt = document.createElement("option");
         opt.text = objCompanyList[i].company_name;
-        opt.value = "SomeValue"
+        opt.value = objCompanyList[i].companyid;
         document.getElementById("lstSelCompany_List").options.add(opt); 
      }
 
@@ -212,6 +214,11 @@ function btnSelCompany_Select_Clicked(){
     //Display Menu
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Display_Menu');
+
+    //Remove All Companies Except the Selected one
+    objCompanyList = objCompanyList.filter(x => x.companyid == document.getElementById("lstSelCompany_List").value);
+
+    document.title = "Polymath Finesse - " + objCompanyList[0].company_name ;
 
     document.getElementById("winSelCompany").style.display = "none";
 }
