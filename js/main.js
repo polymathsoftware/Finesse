@@ -30,6 +30,20 @@ window.onload = function() {
         element.addEventListener('click', WindowClose_Clicked);
     });
 
+    SetWindowPositions();
+
+    //Development Time Only
+    //btnLogin_Clicked();
+
+};
+
+function SetWindowPositions(){
+
+    document.getElementById("winReports").style.top = "180px";
+    document.getElementById("winReports").style.left = "350px";
+    document.getElementById("winAbout").style.top = "210px";
+    document.getElementById("winAbout").style.left = "740px";
+
 };
 
 function menuItem_Clicked(sender) {
@@ -195,6 +209,9 @@ async function btnLogin_Clicked() {
     document.getElementById("lstSelCompany_List").selectedIndex = "0";
     document.getElementById("winSelCompany").style.display = "block";
     btnLogin.disabled = false;
+
+    //btnSelCompany_Select_Clicked();
+    //menuItem_Clicked("winReports");
 
 };
 
