@@ -134,6 +134,22 @@ body {
     background: url("img/reports.ico") no-repeat;
 }
 
+#divReportsRow1 {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#divReportsRow1 > div {
+    margin: 10px;
+}
+
+#btnReports_Arrange {
+    margin-bottom: 10px;
+}
+
+#lstReport_Groups{
+    margin-top: 15px;    
+}
 /********************End Reports Window CSS***************************/
 
 /********************Start About Window CSS***************************/

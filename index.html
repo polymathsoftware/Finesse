@@ -6,6 +6,7 @@
     <link href="css/style.css" rel="stylesheet" /> 
 <!--    <link href="css/mac_theme.css" rel="stylesheet" />   -->   
     <link href="css/win7_theme.css" rel="stylesheet" />  
+    <script src="js/winReports.js"></script>
     <script src="js/main.js"></script>
     <title>Polymath Finesse</title>
 </head>
@@ -79,7 +80,7 @@
     <!-- Start Reports Window -->
     <div id="winReports" class="window" onmousedown='mydragg.startMoving(this,"body",event);' onmouseup='mydragg.stopMoving("body");'>
         <div class="head">
-            <p>Reports Details</p>
+            <p>Reports</p>
             <div class="wcmd"><a class="min">-</a><a class="max">□</a><a class="close">✖</a></div>
             <div class="mcmd">
                 <div class="close"><a class="closebtn" href="#"><span><strong>x</strong></span></a></div>
@@ -88,10 +89,26 @@
             </div>
         </div>
         <div class="window-in" onmousedown="SetWindowOnTop(this, event);" onmouseup="(e=>e.stopPropagation())(event)">
-            <div class="window-controls">
+            <div id="divReportsControls" class="window-controls">
+                <div id="divReportsRow1">
+                    <div id="divReportsCol1">
+                        <b>Reports</b> <button id="btnReports_Arrange">Arrange</button> </br>
+                        <select id="lstReport_Reports" size="21"></select>
+                    </div>
+                    <div id="divReportsCol2">
+                        <b>Groups</b> </br>
+                        <select id="lstReport_Groups" size="21"></select>
+                    </div>
+                    <div id="divReportsCol3">
 
-                <span>Test Reports window!</span>
-                <input type="text">
+                    </div>
+                </div>
+                <div id="divReportsRow2">
+
+                </div>
+                <div id="divReportsRow3">
+
+                </div>
             </div>
         </div>
     </div>

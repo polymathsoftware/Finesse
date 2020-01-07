@@ -31,6 +31,7 @@ window.onload = function() {
     });
 
     SetWindowPositions();
+    LoadReportControls();
 
     //Development Time Only
     //btnLogin_Clicked();
@@ -147,7 +148,6 @@ function mnuLogOff_Clicked() {
 
     const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Hide_Menu');
-
     document.title = "Polymath Finesse";
 
 
