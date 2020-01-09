@@ -43,9 +43,9 @@ body {
 
 /********************Start Login Window CSS***************************/
 #winlogin {
-    width: 367px;
+    width: 430px;
     height: 227px;
-    min-width: 367px;
+    min-width: 377px;
     min-height: 227px;
     animation: fadein 3s;
     /* animation: cssAnimation 2s forwards;*/
@@ -60,7 +60,7 @@ body {
 
 #login-controls{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 90px auto;
     grid-gap: 10px;
 }
 
@@ -73,7 +73,7 @@ body {
 }
 
 #txtUsername, #txtPassword {
-    width: 220px;
+    width: 100%;
     font-size: 17px;
 }
 
@@ -124,10 +124,10 @@ body {
 
 /********************Start Reports Window CSS***************************/
 #winReports {
-    width: 890px;
-    height: 675px;
-    min-width: 300px;
-    min-height: 475px;
+    width: 900px;
+    height: 600px;
+    min-width: 900px;
+    min-height: 600px;
 }
 
 #winReports p {
@@ -136,12 +136,27 @@ body {
 
 #divReportsRow1 {
     display: grid;
-    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-gap: 10px;
 }
 
 #divReportsRow1 > div {
     margin: 10px;
+}
+
+#divReportsRow2 {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 10px;
+}
+
+#divReportsRow3{
+    padding: 15px;
+    text-align: center;
+}
+
+#divReportsRow3 > button {
+    margin: 20px;
 }
 
 #btnReports_Arrange {
@@ -154,14 +169,26 @@ body {
     text-align: center;
 }
 
+#tarReport_Desc{
+    width: 98%;
+    margin-top: 20px;
+}
+
 #divReportsCol3{
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: repeat(12, min-content); 
+    grid-gap: 7px;
     border-width:1px;  
     border-style:solid;
 }
 
+.clsReportsTxt {
+    width: 95%;
+    margin-right: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
 /********************End Reports Window CSS***************************/
 
 /********************Start About Window CSS***************************/

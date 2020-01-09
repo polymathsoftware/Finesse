@@ -88,6 +88,128 @@ function LoadReportControls(){
     lbl.innerHTML = "To";
     lbl.className = "lbl"
     document.getElementById('divReportsCol3').appendChild(lbl);   
+    //Name
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_Name' value='Name'><label class='lbl'>Name</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_NameFrom' class='clsReportsTxt'> ";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_NameTo' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    //Current Installment
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_CurInst' value='Name'><label class='lbl'>Current Inst</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_CurInstFrom' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_CurInstTo' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    //Auction Date
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_AuctDate' value='Name'><label class='lbl'>Auction Date</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_AuctDateFrom' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_AuctDateTo' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    //Starting Date
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_StartDate' value='Name'><label class='lbl'>Starting Date</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_StartDateFrom' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_StartDateTo' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    //Termination
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_Termination' value='Name'><label class='lbl'>Termination</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_TerminationFrom' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_TerminationTo' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    //Amount
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_Amount' value='Name'><label class='lbl'>Amount</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_AmountFrom' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_AmountTo' class='clsReportsTxt'>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    //Running
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_Running' value='Name'><label class='lbl'>Running</label>";
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    var spn = document.createElement("SPAN");    
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    var spn = document.createElement("SPAN"); 
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    //All
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_All' value='Name'><label class='lbl'>All</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");    
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    var spn = document.createElement("SPAN"); 
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    //None
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_Amount' value='Name'><label class='lbl'>None</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);   
+    var spn = document.createElement("SPAN");    
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    var spn = document.createElement("SPAN"); 
+    document.getElementById('divReportsCol3').appendChild(spn); 
+    //Invert
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='checkbox' id='chkReports_Amount' value='Name'><label class='lbl'>Invert</label>";
+    document.getElementById('divReportsCol3').appendChild(spn);  
+    
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<label class='lbl'>From</label>";
+    document.getElementById('divReportsRow2').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_MainFrom' class='txt'></br>";
+    document.getElementById('divReportsRow2').appendChild(spn);   
 
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<label class='lbl'>To (As On)</label>";
+    document.getElementById('divReportsRow2').appendChild(spn);   
+    var spn = document.createElement("SPAN");   
+    spn.innerHTML = "<input type='text' id='txtReports_MainTo' class='txt'></br>";
+    document.getElementById('divReportsRow2').appendChild(spn);   
+    //Preview Button
+    var btn = document.createElement("BUTTON");  
+    btn.innerHTML = "Preview";    
+    btn.className = "btn"               
+    document.getElementById('divReportsRow3').appendChild(btn);
+    //Print Button
+    var btn = document.createElement("BUTTON");  
+    btn.innerHTML = "Print";    
+    btn.className = "btn"               
+    document.getElementById('divReportsRow3').appendChild(btn);
+    //Quit Button
+    var btn = document.createElement("BUTTON");  
+    btn.innerHTML = "Quit";    
+    btn.className = "btn"               
+    document.getElementById('divReportsRow3').appendChild(btn);
+    //Help Button
+    var btn = document.createElement("BUTTON");  
+    btn.innerHTML = "Help";    
+    btn.className = "btn"               
+    document.getElementById('divReportsRow3').appendChild(btn);
 
 };
+

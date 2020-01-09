@@ -136,6 +136,8 @@
 .lbl {
     font: bold;
     font-size: 17px;
+    margin: 5px;
+    white-space: nowrap;
 }
 
 .btn:focus {
