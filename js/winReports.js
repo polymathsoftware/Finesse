@@ -74,5 +74,20 @@ function LoadReportControls(){
         sel.appendChild(opt);
     }
 
+    var lbl = document.createElement("LABEL");   
+    lbl.innerHTML = "Filter";
+    lbl.className = "lbl"
+    document.getElementById('divReportsCol3').appendChild(lbl);   
+
+    var lbl = document.createElement("LABEL");   
+    lbl.innerHTML = "From";
+    lbl.className = "lbl"
+    document.getElementById('divReportsCol3').appendChild(lbl);   
+
+    var lbl = document.createElement("LABEL");   
+    lbl.innerHTML = "To";
+    lbl.className = "lbl"
+    document.getElementById('divReportsCol3').appendChild(lbl);   
+
 
 };

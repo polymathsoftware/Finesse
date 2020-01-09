@@ -135,8 +135,9 @@ body {
 }
 
 #divReportsRow1 {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-gap: 10px;
 }
 
 #divReportsRow1 > div {
@@ -148,8 +149,19 @@ body {
 }
 
 #lstReport_Groups{
-    margin-top: 15px;    
+    margin-top: 15px;  
+    width: 100%; 
+    text-align: center;
 }
+
+#divReportsCol3{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 10px;
+    border-width:1px;  
+    border-style:solid;
+}
+
 /********************End Reports Window CSS***************************/
 
 /********************Start About Window CSS***************************/
