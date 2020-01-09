@@ -99,22 +99,17 @@
                         <b>Groups</b> </br>
                         <select id="lstReport_Groups" size="21"></select>
                     </div>
-                    <div id="divReportsCol3">
-
-                    </div>
+                    <div id="divReportsCol3"></div>
                 </div>
-                <div id="divReportsRow2">
-
-                </div>
-                <div id="divReportsRow3">
-
-                </div>
+                <div id="divReportsRow2"></div>
+                <div id="divReportsRow3"></div>
             </div>
         </div>
     </div>
     <!-- End Reports Window -->
+
 <script>
-        
+       
     // Listen for messages
     const {ipcRenderer} = require('electron');
     ipcRenderer.on('version', function(event, text) {

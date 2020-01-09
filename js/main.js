@@ -174,6 +174,7 @@ async function btnLogin_Clicked() {
     }
 
     btnLogin.disabled = true;
+    loginerror.style.display = "none";
     
     //Build the JSON Data Object to Send to Server
 	var aData = {};
@@ -188,7 +189,15 @@ async function btnLogin_Clicked() {
       objCompanyList = objResult[1];
 	} catch (error) {
       console.error(error);
-      loginerror.innerText = "Invalid Username or Password!"; 
+      if(error.message.includes("Failed to fetch")){
+        loginerror.innerText = "Server Communication Error!"; 
+      }
+      else if(error.message.includes("Cannot read property")) {
+        loginerror.innerText = "Invalid Username or Password!"; 
+      }
+      else{
+        loginerror.innerText = "Unknown Error Occurred!";
+      }
       loginerror.style.display = "block";
       btnLogin.disabled = false;
       return;

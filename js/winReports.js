@@ -30,7 +30,20 @@ function LoadReportControls(){
         ["027","Pending Prize Payments"],
         ["028","Future Liability"],
         ["029","MD Ready Reckoner"],
-        ["030","Web Page Dues"]];     
+        ["030","Web Page Dues"],
+        ["031","Trial Balance"],
+        ["032","DC Daily Summary"],
+        ["033","Passbook"],
+        ["034","Passbook Cover"],
+        ["035","Passbook Ledger Title"],
+        ["036","Payment List - Ticketwise"],
+        ["037","Foreman Dividend for the period"],
+        ["038","Form 1"],
+        ["039","Service Tax Statement"],
+        ["040","Intimation SMS"],
+        ["041","Collection Details in Tabulation"],
+        ["042","Intimation Mail"],
+        ["043","Collection Details"]];     
 
     var sel = document.getElementById('lstReport_Reports');
     for(var i = 0; i < arrReports.length; i++) {
