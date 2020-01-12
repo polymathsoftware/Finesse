@@ -25,25 +25,24 @@ function LoadReportControls(){
         ["022","Group List(PSO & Agree No and Date"],
         ["023","Payment List"],
         ["024","Monthly Prize Paid"],
-        ["025","Monthly Prize Paid"],
-        ["026","Cash Ledger"],
-        ["027","Pending Prize Payments"],
-        ["028","Future Liability"],
-        ["029","MD Ready Reckoner"],
-        ["030","Web Page Dues"],
-        ["031","Trial Balance"],
-        ["032","DC Daily Summary"],
-        ["033","Passbook"],
-        ["034","Passbook Cover"],
-        ["035","Passbook Ledger Title"],
-        ["036","Payment List - Ticketwise"],
-        ["037","Foreman Dividend for the period"],
-        ["038","Form 1"],
-        ["039","Service Tax Statement"],
-        ["040","Intimation SMS"],
-        ["041","Collection Details in Tabulation"],
-        ["042","Intimation Mail"],
-        ["043","Collection Details"]];     
+        ["025","Cash Ledger"],
+        ["026","Pending Prize Payments"],
+        ["027","Future Liability"],
+        ["028","MD Ready Reckoner"],
+        ["029","Web Page Dues"],
+        ["030","Trial Balance"],
+        ["031","DC Daily Summary"],
+        ["032","Passbook"],
+        ["033","Passbook Cover"],
+        ["034","Passbook Ledger Title"],
+        ["035","Payment List - Ticketwise"],
+        ["036","Foreman Dividend for the period"],
+        ["037","Form 1"],
+        ["038","Service Tax Statement"],
+        ["039","Intimation SMS"],
+        ["040","Collection Details in Tabulation"],
+        ["041","Intimation Mail"],
+        ["042","Collection Details"]];     
 
     var sel = document.getElementById('lstReport_Reports');
     for(var i = 0; i < arrReports.length; i++) {
@@ -190,26 +189,37 @@ function LoadReportControls(){
     var spn = document.createElement("SPAN");   
     spn.innerHTML = "<input type='text' id='txtReports_MainTo' class='txt'></br>";
     document.getElementById('divReportsRow2').appendChild(spn);   
-    //Preview Button
-    var btn = document.createElement("BUTTON");  
-    btn.innerHTML = "Preview";    
-    btn.className = "btn"               
-    document.getElementById('divReportsRow3').appendChild(btn);
     //Print Button
     var btn = document.createElement("BUTTON");  
     btn.innerHTML = "Print";    
-    btn.className = "btn"               
+    btn.className = "btn";
+    btn.id = "btnReports_Print";
+    document.getElementById('divReportsRow3').appendChild(btn);
+    //Export Button
+    var btn = document.createElement("BUTTON");  
+    btn.innerHTML = "Export";    
+    btn.className = "btn";
+    btn.id = "btnReports_Export";
     document.getElementById('divReportsRow3').appendChild(btn);
     //Quit Button
     var btn = document.createElement("BUTTON");  
     btn.innerHTML = "Quit";    
-    btn.className = "btn"               
+    btn.className = "btn";
+    btn.id = "btnReports_Quit";
     document.getElementById('divReportsRow3').appendChild(btn);
     //Help Button
     var btn = document.createElement("BUTTON");  
     btn.innerHTML = "Help";    
-    btn.className = "btn"               
+    btn.className = "btn";
+    btn.id = "btnReports_Help";
     document.getElementById('divReportsRow3').appendChild(btn);
+
+    //Create Even listeners for all Events.
+    document.getElementById("btnReports_Quit").addEventListener("click", btnReports_Quit_Clicked);
 
 };
 
+function btnReports_Quit_Clicked(){
+    //Hide the Reports Window
+    document.getElementById("winReports").style.display = "none";
+};
