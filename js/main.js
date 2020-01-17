@@ -1,11 +1,16 @@
-const { remote } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 const { systemPreferences } = remote;
 var nZindex = 5; //Stores the Windows Zindex
 
+let iUser_Id = 0 ;
 let sFirst_Name = "";
 let sLast_Name = "";
 let sSessionId = "";
 let objCompanyList;
+
+window.onbeforeunload =  function() {
+    endUserSession();
+};
 
 window.onload = function() {
     //Get color from Windows and update the body
@@ -96,7 +101,7 @@ async function requestREST(url = '', data = {}) {
       body: new URLSearchParams(data)
     });
     return await response.json(); 
-  }
+}
   
 
 //************************BEGIN CODE TO LOGIN SCEEN ****************************************//
@@ -146,10 +151,18 @@ function mnuLogOff_Clicked() {
     document.getElementById("txtPassword").value = "";
     document.getElementById("txtUsername").focus();
 
-    const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Hide_Menu');
     document.title = "Polymath Finesse";
 
+    endUserSession();
+
+};
+
+function endUserSession(){
+    //End User Session
+	var aData = {};
+    aData.userid = iUser_Id;
+    requestREST('https://finesse.polymath.in/rest/logout.php', aData);
 
 };
 
@@ -182,7 +195,8 @@ async function btnLogin_Clicked() {
     aData.pass = txtPassword.value;
 	
 	try {
-	  const objResult = await requestREST('https://finesse.polymath.in/rest/login.php', aData);
+      const objResult = await requestREST('https://finesse.polymath.in/rest/login.php', aData);
+      iUser_Id = objResult[0][0].userid;
       sFirst_Name = objResult[0][0].first_name;
       sLast_Name = objResult[0][0].last_name;
       sSessionId = objResult[0][0].session_id;
@@ -227,7 +241,6 @@ async function btnLogin_Clicked() {
 function btnLoginCancel_Clicked(){
 
     //Quit Application
-    const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Quit_App');
 
 };
@@ -238,7 +251,6 @@ function btnLoginCancel_Clicked(){
 
 function btnSelCompany_Select_Clicked(){
     //Display Menu
-    const { ipcRenderer } = require('electron');
     ipcRenderer.send('asynchronous-message', 'Display_Menu');
 
     //Remove All Companies Except the Selected one

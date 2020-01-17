@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain, systemPreferences } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, systemPreferences, dialog } = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
 
@@ -97,6 +97,20 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+
+//Log out On quit
+app.on('before-quit', () => {
+  // End the Session On server When Application quits
+  let options  = {
+    buttons: ["OK"],
+    message: "Please press OK to Log Off Finesse Application"
+    }
+
+  dialog.showMessageBoxSync(options); 
+
+}) 
+
 
 function sendStatusToWindow(text) {
   log.info(text);
