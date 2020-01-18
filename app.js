@@ -98,20 +98,6 @@ app.on('activate', () => {
   }
 })
 
-
-//Log out On quit
-app.on('before-quit', () => {
-  // End the Session On server When Application quits
-  let options  = {
-    buttons: ["OK"],
-    message: "Please press OK to Log Off Finesse Application"
-    }
-
-  dialog.showMessageBoxSync(options); 
-
-}) 
-
-
 function sendStatusToWindow(text) {
   log.info(text);
   win.webContents.send('update_status', text);
