@@ -14,7 +14,7 @@ window.onbeforeunload =  function() {
          ipcRenderer.send('asynchronous-message', 'Win_Hide');
          setTimeout(function(){
             ipcRenderer.send('asynchronous-message', 'Quit_App');
-          }, 1000);
+          }, 5000);
          return false;
     }
 };
