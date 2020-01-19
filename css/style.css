@@ -10,29 +10,22 @@ body {
 /********************Start Ready Window CSS***************************/
 #winReady {
     width: 367px;
-    height: 227px;
+    height: 127px;
     min-width: 367px;
-    min-height: 227px;
+    min-height: 127px;
     max-width: 367px;
-    max-height: 227px;
-    /*animation: cssAnimation 2s forwards;*/
-}
-
-@keyframes cssAnimation {
-    0%   {opacity: 1;}
-    70%  {opacity: 1;}
-    100% {opacity: 0;}
+    max-height: 127px;
 }
 
 #ready-in {
     width: 350px;
-    height: 180px;
+    height: 80px;
     text-align: center;
 }
 
 #ready-message {
-    left: 505px;
-    bottom: 5px;
+    /*left: 505px;
+    bottom: 5px;*/
     font-weight: bolder;
     font-size: x-large;
     color: red;

@@ -8,9 +8,15 @@ let sLast_Name = "";
 let sSessionId = "";
 let objCompanyList;
 
-// window.onbeforeunload =  function() {
-//     endUserSession();
-// };
+window.onbeforeunload =  function() {
+    if(document.getElementById("winlogin").style.display != "block") {
+         mnuLogOff_Clicked();
+         setTimeout(function(){
+            ipcRenderer.send('asynchronous-message', 'Quit_App');
+          }, 1000);
+         return false;
+    }
+};
 
 window.onload = function() {
     //Get color from Windows and update the body
@@ -61,6 +67,7 @@ function menuItem_Clicked(sender) {
         //Set Ready Window Position
         document.getElementById("winReady").style.top = parseInt(window.innerHeight/2) - 113.5 + "px";
         document.getElementById("winReady").style.left = parseInt(window.innerWidth/2) - 183.5 + "px";
+        //Hide Widnow After 3 Seconds
         setTimeout(function () {
             document.getElementById('winReady').style.display='none';
         }, 3000);
@@ -84,6 +91,7 @@ function mnuCloseAll_Clicked() {
     document.getElementById("winAbout").style.display = "none";
     document.getElementById("winReports").style.display = "none";
     document.getElementById("winSelCompany").style.display = "none";
+    document.getElementById('winReady').style.display='none';
 };
 
 function emailIsValid (email) {
@@ -140,7 +148,7 @@ function txtPassword_Changed(event) {
 
 };
 
-function mnuLogOff_Clicked() {
+async function mnuLogOff_Clicked() {
     //Hide the menu and display the login Screen
     //Send command to Main process to hide menu
     mnuCloseAll_Clicked();
@@ -154,16 +162,15 @@ function mnuLogOff_Clicked() {
     ipcRenderer.send('asynchronous-message', 'Hide_Menu');
     document.title = "Polymath Finesse";
 
-    endUserSession();
-
-};
-
-function endUserSession(){
     //End User Session
 	var aData = {};
     aData.userid = iUser_Id;
-    requestREST('https://finesse.polymath.in/rest/logout.php', aData);
-
+	try {
+        const objResult = await requestREST('https://finesse.polymath.in/rest/logout.php', aData);
+        ipcRenderer.send('asynchronous-message', 'Logged_Out');
+    } catch (error) {
+        ipcRenderer.send('asynchronous-message', 'Logged_Out');
+    }
 };
 
 //Code When Login Button is clicked.
@@ -200,9 +207,11 @@ async function btnLogin_Clicked() {
       sFirst_Name = objResult[0][0].first_name;
       sLast_Name = objResult[0][0].last_name;
       sSessionId = objResult[0][0].session_id;
-      objCompanyList = objResult[1];
+      objCompanyList = objResult[1]; 
+      ipcRenderer.send('asynchronous-message', 'Logged_In');
 	} catch (error) {
       console.error(error);
+      ipcRenderer.send('asynchronous-message', '[Error In Login Screen] ' + error.message);
       if(error.message.includes("Failed to fetch")){
         loginerror.innerText = "Server Communication Error!"; 
       }

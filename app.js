@@ -13,7 +13,8 @@ log.info('App starting...');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win;
+let bLogged_In = false;
 
 function createWindow () {
   // Create the browser window.
@@ -59,6 +60,13 @@ ipcMain.on('asynchronous-message', (event, arg) => {
     app.quit();
   }
 
+  if(arg == "Logged_In"){
+    bLogged_In = true;
+  }
+
+  if(arg == "Logged_Out"){
+    bLogged_In = false;
+  }
 
 })
 
@@ -80,8 +88,7 @@ app.on('ready', function() {
 
 });
 
-
-// Quit when all windows are closed.
+//Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -98,22 +105,18 @@ app.on('activate', () => {
   }
 })
 
-
 //Log out On quit
-app.on('before-quit', () => {
+app.on('before-quit', (event) => {
   // End the Session On server When Application quits
-
-  if(Menu.getApplicationMenu() === null ){
-    // Don't do anything... Just quit.
-   }
-  else{
+  if(bLogged_In){
+    if(typeof win === 'object' && win !== null){ 
+      win.webContents.executeJavaScript(`mnuLogOff_Clicked();`);
+    }
     event.preventDefault();
-    win.webContents.executeJavaScript(`mnuLogOff_Clicked();`);
-    setTimeout(function(){ 
+    setTimeout(function(){
       app.quit(); 
-    }, 3000);
+    }, 1000);
   }
-
 }) 
 
 
