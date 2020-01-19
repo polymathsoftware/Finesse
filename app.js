@@ -68,6 +68,10 @@ ipcMain.on('asynchronous-message', (event, arg) => {
     bLogged_In = false;
   }
 
+  if(arg == "Win_Hide"){
+    win.hide();
+  }
+
 })
 
 // This method will be called when Electron has finished
@@ -113,9 +117,10 @@ app.on('before-quit', (event) => {
       win.webContents.executeJavaScript(`mnuLogOff_Clicked();`);
     }
     event.preventDefault();
+    win.hide();
     setTimeout(function(){
       app.quit(); 
-    }, 1000);
+    }, 5000);
   }
 }) 
 

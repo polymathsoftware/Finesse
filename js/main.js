@@ -11,6 +11,7 @@ let objCompanyList;
 window.onbeforeunload =  function() {
     if(document.getElementById("winlogin").style.display != "block") {
          mnuLogOff_Clicked();
+         ipcRenderer.send('asynchronous-message', 'Win_Hide');
          setTimeout(function(){
             ipcRenderer.send('asynchronous-message', 'Quit_App');
           }, 1000);
