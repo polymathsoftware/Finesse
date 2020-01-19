@@ -8,9 +8,9 @@ let sLast_Name = "";
 let sSessionId = "";
 let objCompanyList;
 
-window.onbeforeunload =  function() {
-    endUserSession();
-};
+// window.onbeforeunload =  function() {
+//     endUserSession();
+// };
 
 window.onload = function() {
     //Get color from Windows and update the body

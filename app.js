@@ -98,6 +98,25 @@ app.on('activate', () => {
   }
 })
 
+
+//Log out On quit
+app.on('before-quit', () => {
+  // End the Session On server When Application quits
+
+  if(Menu.getApplicationMenu() === null ){
+    // Don't do anything... Just quit.
+   }
+  else{
+    event.preventDefault();
+    win.webContents.executeJavaScript(`mnuLogOff_Clicked();`);
+    setTimeout(function(){ 
+      app.quit(); 
+    }, 3000);
+  }
+
+}) 
+
+
 function sendStatusToWindow(text) {
   log.info(text);
   win.webContents.send('update_status', text);
