@@ -8,13 +8,24 @@ let sLast_Name = "";
 let sSessionId = "";
 let objCompanyList;
 
+ipcRenderer.on('version', function(event, text) {
+    document.getElementById('version').innerText = 'v' + text;
+});
+
+ipcRenderer.on('update_status', function(event, text) {
+    var container = document.getElementById('messages');
+    var message = document.createElement('div');
+    message.innerHTML = text;
+    container.appendChild(message);
+});
+
 window.onbeforeunload =  function() {
     if(document.getElementById("winlogin").style.display != "block") {
          mnuLogOff_Clicked();
          ipcRenderer.send('asynchronous-message', 'Win_Hide');
          setTimeout(function(){
             ipcRenderer.send('asynchronous-message', 'Quit_App');
-          }, 5000);
+          }, 3000);
          return false;
     }
 };

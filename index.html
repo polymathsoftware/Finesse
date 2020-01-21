@@ -107,22 +107,5 @@
         </div>
     </div>
     <!-- End Reports Window -->
-
-<script>
-       
-    // Listen for messages
-    const {ipcRenderer} = require('electron');
-    ipcRenderer.on('version', function(event, text) {
-        document.getElementById('version').innerText = 'v' + text;
-    })
-
-    ipcRenderer.on('update_status', function(event, text) {
-        var container = document.getElementById('messages');
-        var message = document.createElement('div');
-        message.innerHTML = text;
-        container.appendChild(message);
-    })
-
-</script>
 </body>
 </html>

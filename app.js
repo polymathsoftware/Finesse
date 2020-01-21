@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain, systemPreferences, dialog } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, systemPreferences } = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
 
@@ -120,7 +120,7 @@ app.on('before-quit', (event) => {
     win.hide();
     setTimeout(function(){
       app.quit(); 
-    }, 5000);
+    }, 3000);
   }
 }) 
 
