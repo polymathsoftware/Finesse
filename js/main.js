@@ -7,6 +7,7 @@ let sFirst_Name = "";
 let sLast_Name = "";
 let sSessionId = "";
 let objCompanyList;
+let arrGroups;
 
 ipcRenderer.on('version', function(event, text) {
     document.getElementById('version').innerText = 'v' + text;
@@ -25,7 +26,7 @@ window.onbeforeunload =  function() {
          ipcRenderer.send('asynchronous-message', 'Win_Hide');
          setTimeout(function(){
             ipcRenderer.send('asynchronous-message', 'Quit_App');
-          }, 3000);
+          }, 1000);
          return false;
     }
 };
@@ -54,7 +55,6 @@ window.onload = function() {
     });
 
     SetWindowPositions();
-    LoadReportControls();
 
     //Development Time Only
     //btnLogin_Clicked();
@@ -121,8 +121,23 @@ async function requestREST(url = '', data = {}) {
       body: new URLSearchParams(data)
     });
     return await response.json(); 
-}
-  
+};
+
+async function requestREST_API(url = '', data = {}) {
+    url = objCompanyList[0].folder_name + url;  
+
+    const response = await fetch(url, {
+      method: 'POST', 
+      cache: 'no-cache', 
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic ' + objCompanyList[0].access_key
+      },
+      body: new URLSearchParams(data)
+    });
+    return await response.json(); 
+};
+
 
 //************************BEGIN CODE TO LOGIN SCEEN ****************************************//
 
@@ -156,6 +171,12 @@ function txtPassword_Changed(event) {
             return;
         }
         document.getElementById("btnLogin").focus();
+    }
+
+    // If "caps lock" is pressed, display the warning text
+    if (event.getModifierState("CapsLock")) {
+        loginerror.innerText ="WARNING! Caps lock is ON."
+        loginerror.style.display = "block";
     }
 
 };
@@ -221,6 +242,7 @@ async function btnLogin_Clicked() {
       sSessionId = objResult[0][0].session_id;
       objCompanyList = objResult[1]; 
       ipcRenderer.send('asynchronous-message', 'Logged_In');
+      LoadReportControls();
 	} catch (error) {
       console.error(error);
       ipcRenderer.send('asynchronous-message', '[Error In Login Screen] ' + error.message);
@@ -248,10 +270,11 @@ async function btnLogin_Clicked() {
         opt.text = objCompanyList[i].company_name;
         opt.value = objCompanyList[i].companyid;
         document.getElementById("lstSelCompany_List").options.add(opt); 
-     }
+    }
 
-    document.getElementById("lstSelCompany_List").selectedIndex = "0";
+    document.getElementById("lstSelCompany_List").selectedIndex = "0";    
     document.getElementById("winSelCompany").style.display = "block";
+    document.getElementById("lstSelCompany_List").focus();
     btnLogin.disabled = false;
 
     //btnSelCompany_Select_Clicked();
@@ -260,10 +283,8 @@ async function btnLogin_Clicked() {
 };
 
 function btnLoginCancel_Clicked(){
-
     //Quit Application
     ipcRenderer.send('asynchronous-message', 'Quit_App');
-
 };
 
 //************************END CODE TO LOGIN SCEEN ****************************************//

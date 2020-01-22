@@ -1,5 +1,5 @@
 
-function LoadReportControls(){
+async function LoadReportControls(){
     var arrReports = [
         ["001","Receipt List"],
         ["002","Group Statement"],
@@ -52,24 +52,14 @@ function LoadReportControls(){
         sel.appendChild(opt);
     }
 
-    var arrGroups = [
-        ["G001","G001"],
-        ["G002","G002"],
-        ["G003","G003"],
-        ["G004","G004"],
-        ["G005","G005"],
-        ["G006","G006"],
-        ["G007","G007"],
-        ["G008","G008"],
-        ["G009","G009"],
-        ["G010","G010"],
-        ["G011","G011"]];     
+    //Get the List of Group Ids and Group Name
+    arrGroups = await loadChitGroups();
 
     var sel = document.getElementById('lstReport_Groups');
     for(var i = 0; i < arrGroups.length; i++) {
         var opt = document.createElement('option');
-        opt.text = arrGroups[i][1];
-        opt.value = arrGroups[i][0];
+        opt.text = arrGroups[i].gname;
+        opt.value = arrGroups[i].groupid;
         sel.appendChild(opt);
     }
 
@@ -222,4 +212,26 @@ function LoadReportControls(){
 function btnReports_Quit_Clicked(){
     //Hide the Reports Window
     document.getElementById("winReports").style.display = "none";
+};
+
+async function loadChitGroups(){
+    var arrResult;
+    //Build the JSON Data Object to Send to Server
+	var aData = {};
+    aData.pSession_ID = sSessionId;
+
+	try {
+      const objResult = await requestREST_API('/api.php/V01_GetGroups_01', aData);
+      arrResult = objResult[0];
+      if(typeof arrResult[0].ErrorMsg === "undefined"){
+        return arrResult;
+      } else {
+        //Session Has Expired Log out of system
+        ipcRenderer.send('asynchronous-message', 'Quit_App');
+      }
+	} catch (error) {
+      console.error(error);
+      ipcRenderer.send('asynchronous-message', '[Error In Loading Groups] ' + error.message);
+    }
+
 };

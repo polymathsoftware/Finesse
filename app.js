@@ -120,7 +120,7 @@ app.on('before-quit', (event) => {
     win.hide();
     setTimeout(function(){
       app.quit(); 
-    }, 3000);
+    }, 1000);
   }
 }) 
 
