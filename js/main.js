@@ -91,7 +91,13 @@ function SetWindowOnTop(sender, event) {
     sender.parentNode.style.zIndex = nZindex;
     nZindex++;
     event.stopPropagation();
-}
+};
+
+function LoadInitialData(){
+    // Load Initial Data After Login
+    LoadReportControls();
+
+};
 
 function WindowClose_Clicked() {
     //This is executed when window Close or Minimize is clicked on all windows.
@@ -242,7 +248,7 @@ async function btnLogin_Clicked() {
       sSessionId = objResult[0][0].session_id;
       objCompanyList = objResult[1]; 
       ipcRenderer.send('asynchronous-message', 'Logged_In');
-      LoadReportControls();
+      LoadInitialData();
 	} catch (error) {
       console.error(error);
       ipcRenderer.send('asynchronous-message', '[Error In Login Screen] ' + error.message);
